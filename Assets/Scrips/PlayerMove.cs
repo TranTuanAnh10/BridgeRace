@@ -16,7 +16,6 @@ public class PlayerMove : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
             playerAni.SetBool("IsRun", true);
-
         }
         else
         {
