@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] float speed = 5f;
     [SerializeField] Animator playerAni;
+
+    private Color SelfColor = Color.blue;
     private void FixedUpdate()
     {
         float inputX = Input.GetAxis("Horizontal");
@@ -20,6 +22,16 @@ public class PlayerMove : MonoBehaviour
         else
         {
             playerAni.SetBool("IsRun", false);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Material material = other.gameObject.GetComponent<MeshRenderer>().material;
+        Color color = material.color;
+        if (color.Equals(SelfColor))
+        {
+            Destroy(other.gameObject.GetComponent<Collider>());
+            GameController.Instance.PushObject(other.gameObject);
         }
     }
 }

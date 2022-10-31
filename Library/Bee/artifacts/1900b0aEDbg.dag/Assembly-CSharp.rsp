@@ -117,6 +117,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
 -r:"H:/Unity/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"H:/Unity/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"H:/Unity/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -325,6 +326,7 @@
 -r:"H:/WorkSpace/Unity/BridgeRace/Bridge_Race/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll"
 -r:"H:/WorkSpace/Unity/BridgeRace/Bridge_Race/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"H:/WorkSpace/Unity/BridgeRace/Bridge_Race/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/Assembly-CSharp-firstpass.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.PlasticSCM.Editor.ref.dll"

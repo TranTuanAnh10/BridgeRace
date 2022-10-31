@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BrickContoller : MonoBehaviour
 {
+    [SerializeField] Transform brickInPlayer;
     void Start()
     {
         
@@ -14,12 +15,5 @@ public class BrickContoller : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameController.Instance.createBrickPlayer();
-            Destroy(this);
-        }
-    }
+    
 }
