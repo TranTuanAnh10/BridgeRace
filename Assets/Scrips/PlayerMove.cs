@@ -26,12 +26,22 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Material material = other.gameObject.GetComponent<MeshRenderer>().material;
-        Color color = material.color;
-        if (color.Equals(SelfColor))
+        if(other.gameObject.CompareTag("Brick"))
         {
-            Destroy(other.gameObject.GetComponent<Collider>());
-            GameController.Instance.PushObject(other.gameObject);
+            Material material = other.gameObject.GetComponent<MeshRenderer>().material;
+            Color color = material.color;
+            if (color.Equals(SelfColor))
+            {
+                GameController.Instance.pickUpBrick(other.gameObject);
+                BrickSpawner.Instance.updateCountListBrick(color);
+            }
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("checkpoin"))
+        {
+            GameController.Instance.takeBrick();
         }
     }
 }

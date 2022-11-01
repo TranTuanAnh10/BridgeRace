@@ -122,7 +122,6 @@
 -define:CSHARP_7_3_OR_NEWER
 -r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
 -r:"Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll"
--r:"Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll"
 -r:"H:/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"H:/Unity/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"H:/Unity/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
