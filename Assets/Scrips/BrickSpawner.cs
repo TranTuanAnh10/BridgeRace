@@ -7,6 +7,7 @@ public class BrickSpawner : MonoBehaviour
     public static BrickSpawner Instance;
     public GameObject brick;
     [SerializeField] Transform brickParent;
+    private Vector3 firstPos = new Vector3(-7f, 0.15f, 6f);
     private int listBrickBlue = 0;
     private int listBrickGreen = 0;
     private int listBrickYellow = 0;
@@ -23,17 +24,40 @@ public class BrickSpawner : MonoBehaviour
             obj.SetActive(false);
             listPool.Add(obj);
         }
+        createBrick();
+    }
+    private void FixedUpdate()
+    {
+        
+    }
+    public void reSpawnBrick(List<Vector3> listPosSpawn)
+    {
+        for (var i = 0; i < listPosSpawn.Count; i++)
+        {
+            spawnFromPool(listPosSpawn[i], Quaternion.identity);
+            listPosSpawn.RemoveAt(i);
+        }
+    }
+    void createBrick()
+    {
+        for (var i = 0; i < 8; i++)
+            for (var j = 0; j < 8; j++)
+            {
+                spawnFromPool(new Vector3(firstPos.x + (j * 2), firstPos.y, firstPos.z - (i * 2)), Quaternion.identity);
+                //updateColorBirck(newBrick);
+            }
     }
     public void spawnFromPool(Vector3 positon, Quaternion rotation)
     {
         int index = listPool.Count - 1;
         listPool[index].SetActive(true);
+        listPool[index].tag = "Brick";
         listPool[index].transform.position = positon;
         listPool[index].transform.rotation = rotation;
-        updateColorBirck(listPool[index]);
+        updateColorBrick(listPool[index]);
         listPool.RemoveAt(index);
     }
-    void updateColorBirck(GameObject newBrick)
+    void updateColorBrick(GameObject newBrick)
     {
         int ramdom = Random.Range(1, 5);
         if(listBrickRed <= maxBirck || listBrickBlue <= maxBirck || listBrickGreen <= maxBirck || listBrickYellow <= maxBirck)
@@ -62,7 +86,7 @@ public class BrickSpawner : MonoBehaviour
             }
             else
             {
-                updateColorBirck(newBrick);
+                updateColorBrick(newBrick);
             }
     }
     public void updateCountListBrick(Color color)

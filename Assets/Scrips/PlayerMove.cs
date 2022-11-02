@@ -41,7 +41,8 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("checkpoin"))
         {
-            GameController.Instance.takeBrick();
+            //GameController.Instance.takeBrick();
+            GameObject obj = collision.transform.parent.gameObject;
         }
     }
 }
