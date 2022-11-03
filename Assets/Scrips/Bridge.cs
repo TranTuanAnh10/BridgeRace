@@ -7,7 +7,7 @@ public class Bridge : MonoBehaviour
 {
     public static Bridge Instance;
     [SerializeField] Transform brickParentInBridge;
-    [SerializeField] GameObject checkPoin;
+    //[SerializeField] GameObject checkPoin;
     private Vector3 firstPosBridge = new Vector3(0, 0, 0.2f);
     private Vector3 nextPosBridge;
     private const float tweenTime = 0.7f;
@@ -21,9 +21,9 @@ public class Bridge : MonoBehaviour
         Instance = this;
         nextPosBridge = firstPosBridge;
     }
-    public void moveBrickToBridge(GameObject obj)
+    public void moveBrickToBridge(GameObject checkPoin, GameObject obj) 
     {
-        if(brickInBridgeCount < maxBrickInBridge)
+       if (brickInBridgeCount < maxBrickInBridge && obj !=null)
         {
             obj.transform.SetParent(brickParentInBridge);
             obj.transform.DOLocalMove(nextPosBridge, tweenTime);

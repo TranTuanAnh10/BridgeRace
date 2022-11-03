@@ -50,12 +50,15 @@ public class BrickSpawner : MonoBehaviour
     public void spawnFromPool(Vector3 positon, Quaternion rotation)
     {
         int index = listPool.Count - 1;
-        listPool[index].SetActive(true);
-        listPool[index].tag = "Brick";
-        listPool[index].transform.position = positon;
-        listPool[index].transform.rotation = rotation;
-        updateColorBrick(listPool[index]);
-        listPool.RemoveAt(index);
+        if (index >= 0)
+        {
+            listPool[index].SetActive(true);
+            listPool[index].tag = "Brick";
+            listPool[index].transform.position = positon;
+            listPool[index].transform.rotation = rotation;
+            updateColorBrick(listPool[index]);
+            listPool.RemoveAt(index);
+        }
     }
     void updateColorBrick(GameObject newBrick)
     {

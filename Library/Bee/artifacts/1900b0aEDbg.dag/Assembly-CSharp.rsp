@@ -359,6 +359,7 @@
 "Assets/Scrips/CameraController.cs"
 "Assets/Scrips/GameController.cs"
 "Assets/Scrips/PlayerMove.cs"
+"Assets/Scrips/PlayerNavMesh.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/DemoFree.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/FreeCameraLogic.cs"
 "Assets/Supercyan Character Pack Free Sample/Scripts/SimpleSampleCharacterControl.cs"

@@ -59,12 +59,13 @@
     <Compile Include="Assets\Scrips\CameraController.cs" />
     <Compile Include="Assets\Scrips\GameController.cs" />
     <Compile Include="Assets\Scrips\BrickContoller.cs" />
+    <Compile Include="Assets\Scrips\Bridge.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\SimpleSampleCharacterControl.cs" />
     <Compile Include="Assets\Scrips\BrickSpawner.cs" />
     <Compile Include="Assets\Scrips\PlayerMove.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
-    <Compile Include="Assets\Scrips\Bridge.cs" />
+    <Compile Include="Assets\Scrips\PlayerNavMesh.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Supercyan Character Pack Free Sample\Shaders\Legacy\CelShader.shader" />
