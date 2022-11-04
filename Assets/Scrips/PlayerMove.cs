@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     private Vector3 nextPos;
     private Vector3 zero;
     private const float tweenTime = 0.7f;
+    private float spawnTime = 5f;
+    private float timer = 0f;
     private NavMeshAgent navMeshAgent;
     GameObject _object;
     List<GameObject> objects;
@@ -46,8 +48,19 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            navMeshAgent.destination = movePosition.position;
+            if (Time.time > timer)
+            {
+                navMeshAgent.destination = getPosForBot().position;
+                timer = Time.time + spawnTime;
+            }
+            playerAni.SetBool("IsRun", true);
         }
+    }
+    private Transform getPosForBot()
+    {
+        List<GameObject> listBrick = BrickSpawner.Instance.getListBrick(SelfColor);
+        int rd = Random.Range(1, listBrick.Count);
+        return listBrick[rd].transform;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -58,7 +71,7 @@ public class PlayerMove : MonoBehaviour
             if (color.Equals(SelfColor))
             {
                 pickUpBrick(other.gameObject);
-                BrickSpawner.Instance.updateCountListBrick(color);
+                BrickSpawner.Instance.updateListBrick(color, other.gameObject);
             }
         }
     }
