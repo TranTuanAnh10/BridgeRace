@@ -29,7 +29,7 @@ public class Bridge : MonoBehaviour
             obj.transform.DOLocalMove(nextPosBridge, tweenTime);
             obj.transform.DOLocalRotate(zero, tweenTime);
             obj.tag = "Untagged";
-            checkPoin.transform.DOLocalMove(new Vector3(0f, 1.1f, nextPosBridge.z + 0.1f), 1f);
+            //checkPoin.transform.DOLocalMove(new Vector3(0f, 1.1f, nextPosBridge.z + 0.1f), 1f);
             nextPosBridge += new Vector3(0f, 0f, obj.transform.localScale.z);
             brickInBridgeCount++;
         }

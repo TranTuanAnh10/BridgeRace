@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scrips\PlayerNavMesh.cs" />
     <Compile Include="Assets\Scrips\PlayerMove.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
+    <Compile Include="Assets\Scrips\Floor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Supercyan Character Pack Free Sample\Shaders\Legacy\CelShader.shader" />

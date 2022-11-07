@@ -3,7 +3,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] Transform brickParentInPlayer;
@@ -11,15 +11,16 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] Animator playerAni;
     [SerializeField] bool isBot;
-    [SerializeField] Transform movePosition;
-    [SerializeField] Color SelfColor;
+    [SerializeField] public Color SelfColor;
 
     private Vector3 firstPosBackpack = new Vector3(0, 0.3f, 0);
     private Vector3 nextPos;
     private Vector3 zero;
+
     private const float tweenTime = 0.7f;
     private float spawnTime = 5f;
     private float timer = 0f;
+    private bool isPickUp = false;
     private NavMeshAgent navMeshAgent;
     GameObject _object;
     List<GameObject> objects;
@@ -48,10 +49,11 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            if (Time.time > timer)
+            if (isPickUp)//Time.time > timer)
             {
                 navMeshAgent.destination = getPosForBot().position;
                 timer = Time.time + spawnTime;
+                isPickUp = false;
             }
             playerAni.SetBool("IsRun", true);
         }
@@ -91,6 +93,7 @@ public class PlayerMove : MonoBehaviour
         objectPickUp.transform.DOLocalRotate(zero, tweenTime);
         nextPos += new Vector3(0f, objectPickUp.transform.localScale.y + 0.01f, 0f);
         objects.Add(objectPickUp);
+        isPickUp = true;
     }
     public GameObject getPosBrick()
     {

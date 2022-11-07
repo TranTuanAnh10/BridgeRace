@@ -52,7 +52,6 @@ public class BrickSpawner : MonoBehaviour
         int index = listPool.Count - 1;
         if (index >= 0)
         {
-            listPool[index].SetActive(true);
             listPool[index].tag = "Brick";
             listPool[index].transform.position = positon;
             listPool[index].transform.rotation = rotation;
@@ -113,5 +112,28 @@ public class BrickSpawner : MonoBehaviour
             return listBrickGreen;
         else
             return listBrickYellow;
+    }
+    public void activeBrickWithColor(Color _color)
+    {
+        if (_color == Color.blue)
+        {
+            foreach (GameObject _obj in listBrickBlue)
+                _obj.SetActive(true);
+        }    
+        else if (_color == Color.red)
+        {
+            foreach (GameObject _obj in listBrickRed)
+                _obj.SetActive(true);
+        }
+        else if (_color == Color.green)
+        {
+            foreach (GameObject _obj in listBrickGreen)
+                _obj.SetActive(true);
+        }
+        else
+        {
+            foreach (GameObject _obj in listBrickYellow)
+                _obj.SetActive(true);
+        }
     }
 }
